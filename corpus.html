@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Навигационный центр ОшГУ</title>
+
+    <link rel="stylesheet" href="css/corpus.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+
+            <div class="logo">
+                <img src="assets/LogoNuraim.png" alt="logo">
+                <span>Навигационный центр ОшГУ</span>
+            </div>
+
+            <!-- БУРГЕР -->
+            <div class="burger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <nav>
+                <a href="./index.html">Главная</a>
+                <a href="#">Корпусы</a>
+                <a href="#">Навигация</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <section class="search_and_title">
+        <div class="container">
+            <div class="content_search_title">
+                <h1>Корпусы ОшГУ</h1>
+
+                <div class="search_block">
+                    <span>
+                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_11_99)">
+                            <path d="M24.6582 21.6162L19.79 16.748C19.5703 16.5283 19.2725 16.4062 18.96 16.4062H18.1641C19.5117 14.6826 20.3125 12.5146 20.3125 10.1562C20.3125 4.5459 15.7666 0 10.1562 0C4.5459 0 0 4.5459 0 10.1562C0 15.7666 4.5459 20.3125 10.1562 20.3125C12.5146 20.3125 14.6826 19.5117 16.4062 18.1641V18.96C16.4062 19.2725 16.5283 19.5703 16.748 19.79L21.6162 24.6582C22.0752 25.1172 22.8174 25.1172 23.2715 24.6582L24.6533 23.2764C25.1123 22.8174 25.1123 22.0752 24.6582 21.6162ZM10.1562 16.4062C6.7041 16.4062 3.90625 13.6133 3.90625 10.1562C3.90625 6.7041 6.69922 3.90625 10.1562 3.90625C13.6084 3.90625 16.4062 6.69922 16.4062 10.1562C16.4062 13.6084 13.6133 16.4062 10.1562 16.4062Z" fill="black" fill-opacity="0.5"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_11_99">
+                            <rect width="25" height="25" fill="white"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </span>
+                    <input type="text" id="search_content" placeholder="Введите название корпуса или адрес">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cards_blocks">
+        <div class="container">
+            <div class="cards_blocks_items">
+                <div class="card_block">
+                    <div class="card_image">
+                        <img src="./assets/UniversityImage.png" alt="">
+                    </div>
+
+                    <div class="card_content_description">
+                        <h3>ИПКА (Главный корпус)</h3>
+                        <p><span>Адрес:</span> 331 Ленин Проспект, Ош 723500</p>
+                        <a href="">Открыть карту</a>
+                    </div>
+                </div>
+
+                <div class="card_block">
+                    <div class="card_image">
+                        <img src="./assets/UniversityImage.png" alt="">
+                    </div>
+
+                    <div class="card_content_description">
+                        <h3>STEAM (Главный корпус)</h3>
+                        <p>Адрес: 331 Ленин Проспект, Ош 723500</p>
+                        <a href="">Открыть карту</a>
+                    </div>
+                </div>
+
+                <div class="card_block">
+                    <div class="card_image">
+                        <img src="./assets/UniversityImage.png" alt="">
+                    </div>
+
+                    <div class="card_content_description">
+                        <h3>ОшГУ (Главный корпус)</h3>
+                        <p>Адрес: 331 Ленин Проспект, Ош 723500</p>
+                        <a href="">Открыть карту</a>
+                    </div>
+                </div>
+
+                <p id="noResults" style="display: none; text-align: center; font-size: 24px; font-weight: 600; color: #0D416B;">
+                    По вашему запросу нечего не найдено
+                </p>
+            </div>
+            
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- FOOTER -->
+    <footer>
+        2026 НЦ ОшГУ | Разработка © 2026 Дилдебек К. Нурайым
+    </footer>
+
+    <!-- JS для бургера -->
+    <script>
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('nav');
+
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+    <script>
+        const searchInput = document.getElementById("search_content");
+        const cards = document.querySelectorAll(".card_block");
+        const noResults = document.getElementById("noResults");
+
+        searchInput.addEventListener("input", function () {
+            const value = this.value.toLowerCase();
+            let found = false;
+
+            cards.forEach(card => {
+                const title = card.querySelector("h3").textContent.toLowerCase();
+                const address = card.querySelector("p").textContent.toLowerCase();
+
+                if (title.includes(value) || address.includes(value)) {
+                    card.style.display = "flex";
+                    found = true;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            // показываем или скрываем текст
+            if (found) {
+                noResults.style.display = "none";
+            } else {
+                noResults.style.display = "block";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
