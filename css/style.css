@@ -121,6 +121,7 @@ nav a:hover {
     width: 400px;
     height: 450px;
     background: url('../assets/cardBackground.png');
+    background-size: 100%;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -308,7 +309,7 @@ footer {
 /* Маленькие телефоны */
 @media (max-width: 480px) {
     .logo {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .logo img {
@@ -329,6 +330,10 @@ footer {
 
     .feedback h2 {
         font-size: 28px;
+    }
+
+    footer {
+        font-size: 15px;
     }
 }
 
