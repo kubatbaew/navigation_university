@@ -158,6 +158,22 @@ nav a:hover {
     background-color: #1a598d;
 }
 
+/* FOOTER */
+
+footer {
+    background: #2f6fa3;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
 /* ===================== */
 /* АДАПТАЦИЯ */
 /* ===================== */
@@ -236,7 +252,7 @@ nav a:hover {
         width: 97%;
     }
     .search_block input {
-        width: 380px;
+        width: 83%;
     }
 
     .card_block {
@@ -279,7 +295,7 @@ nav a:hover {
 /* Маленькие телефоны */
 @media (max-width: 480px) {
     .logo {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .logo img {
@@ -308,6 +324,9 @@ nav a:hover {
         padding: 14px;
     }
 
+    footer {
+        font-size: 15px;
+    }
 
 }
 
@@ -345,19 +364,3 @@ nav a:hover {
 }
 
 
-
-/* FOOTER */
-
-footer {
-    background: #2f6fa3;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 50px;
-    font-size: 20px;
-    font-weight: 400;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-}
